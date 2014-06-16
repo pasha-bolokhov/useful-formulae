@@ -1,0 +1,768 @@
+\documentclass[14pt]{article}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+%                                                                              %
+%                      C O M M O N   D E F I N I T I O N S                     %
+%                                                                              %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\p}{\partial}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\ov}{\overline}
+\newcommand{\lgr}{\left\lgroup}
+\newcommand{\rgr}{\right\rgroup}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Slash character...
+\def\slashed#1{\setbox0=\hbox{$#1$}             % set a box for #1
+   \dimen0=\wd0                                 % and get its size
+   \setbox1=\hbox{/} \dimen1=\wd1               % get size of /
+   \ifdim\dimen0>\dimen1                        % #1 is bigger
+      \rlap{\hbox to \dimen0{\hfil/\hfil}}      % so center / in box
+      #1                                        % and print #1
+   \else                                        % / is bigger
+      \rlap{\hbox to \dimen1{\hfil$#1$\hfil}}   % so center #1
+      /                                         % and print /
+   \fi}                                         %
+%  EXAMPLE:  $\slashed{E}$ or $\slashed{E}_{t}$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+%                                                                              %
+%                               M A I N   T E X T                              %
+%                                                                              %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{center}
+        {\Large\bf Notations}
+\end{center}
+
+\begin{align*}
+%% Phi
+  \Phi  & ~~=~~  \phi  + \sqrt{2}\lambda\theta + F\theta^2  \\ \\
+%% V  
+  V  &  ~~=~~      - \overline{\theta\sigma_\mu}\theta A_\mu + 
+		 i \theta^2 \overline{\theta\lambda} +
+ 		 i \overline{\theta^2}\theta\lambda -
+          	 \frac{i}{2} \theta^2\overline{\theta}^2 D \\ \\
+%% W		 
+  W^\alpha & ~~=~~  -\lambda^\alpha + \theta^\alpha D  +
+              \frac{1}{2}
+	\left[\sigma_\mu\overline{\sigma}_\nu\theta\right]^\alpha F_{\mu\nu} -
+	\theta^2 i \slashed{\mathcal{D}}^{\alpha\dot{\alpha}}
+	\overline{\lambda}_{\dot{\alpha}} \\ \\
+%% sigma-matrices	
+  \sigma_\mu^{\alpha\dot{\alpha}} & ~~=~~ 
+		\lgr 1,\; -i \tau^a \rgr~, ~~~~~~~
+  \overline{\sigma}_{\mu\dot{\alpha}\alpha} ~~=~~ 
+		\lgr 1,\; \phantom{+}i \tau^a \rgr \\ \\
+%% Covariant derivatives -- D^\alpha
+   D^\alpha &  ~~=~~  \partial^\alpha - 
+            i \slashed{\partial}^{\alpha\dot{\alpha}}
+	    \overline{\theta}_{\dot{\alpha}}  
+\quad
+   \epsilon_{\alpha\beta} ~~=~~ 
+    \epsilon_{\dot{\alpha}\dot{\beta}} ~~=~~
+    \lgr \begin{array}{rr}
+         \!\!  0 & ~~1 \\ \\
+         \!\! -1 & ~~0 
+    \end{array} \rgr
+\quad
+	    \psi_\alpha ~~=~~ \epsilon_{\alpha\beta}\psi^\beta 
+\quad
+	    \overline{\psi}_{\dot{\alpha}} ~~=~~ 
+			  \epsilon_{\dot{\alpha}\dot{\beta}}
+			  \overline{\psi}^{\dot{\beta}}\\ 
+%% Covariant derivatives -- D_{\dot \alpha}
+   \overline{D}_{\dot{\alpha}} & ~~=~~ \overline{\partial}_{\dot{\alpha}} -
+            i \ov{\slashed{\partial}}{}_{\dot{\alpha}\alpha}\theta^\alpha 
+\quad
+   \epsilon^{\alpha\beta} ~~=~~ 
+    \epsilon^{\dot{\alpha}\dot{\beta}} ~~=~~
+    \lgr\begin{array}{rr}
+         ~0 & -1 \\ \\
+         ~1 &  0
+    \end{array} \rgr
+\quad
+	    \psi^\alpha ~~=~~ \epsilon^{\alpha\beta}\psi_\beta 
+\quad
+	    \overline{\psi}^{\dot{\alpha}} ~~=~~ 
+			  \epsilon^{\dot{\alpha}\dot{\beta}}
+			  \overline{\psi}_{\dot{\beta}}\\ \\
+ \\
+%%  Spinor-index contractions
+  W^2 & ~~=~~  W_\alpha W^\alpha~,~~~~~~~ 
+    \overline{W}^2 ~~=~~ \overline{W^{\dot{\alpha}} W_{\dot{\alpha}}} \\ \\
+%%  Conjugate Field-strength
+  \overline{W}_{\dot{\alpha}} & ~~=~~ 
+        - \overline{\lambda}_{\dot{\alpha}} +
+	  \overline{\theta}_{\dot{\alpha}} D -
+	  \frac{1}{2} \left [ 
+	      \overline{\sigma}_\mu\sigma_\nu \overline{\theta}
+	              \right ]_{\dot{\alpha}} F_{\mu\nu} -
+	  \overline{\theta}^2 (i \ov{\slashed{\mc{D}}}\lambda)_{\dot{\alpha}}
+\qquad {\rm (unconfirmed)}  \\ \\
+%%  Chiral fields
+  x_L & \equiv  ~~~y ~~~ 
+	\equiv ~~~ x_\mu + i \overline{\theta\sigma_\mu}\theta~,~~~~~
+   \Phi ~~=~~ \Phi(y)~,~~~~~~\overline{\Phi} ~~=~~ \overline{\Phi}(x_R) \\ \\
+%%  Gauge derivative
+  \nabla_\mu & ~~=~~  \partial_\mu - i A_\mu^a \frac{\tau^2}{2}~,~~~ 
+           \text{for SU(2)} \\ \\
+%%  Vector superfield in "y" variable
+  V(y) & ~~=~~  - \overline{\theta\sigma_\mu}\theta A_\mu(y) + 
+	    i \theta^2 \overline{\theta\lambda}(y) +
+            i \overline{\theta}^2 \theta\lambda(y) -
+            \frac{i}{2}\theta^2\overline{\theta}^2
+	    \left [ D(y) - \partial_\mu A^\mu(y) \right ] \\ \\
+%%  Definition of the field-strength
+  W^\alpha & ~~=~~ - \frac{i}{4} \overline{DD} D^\alpha V 
+  \qquad
+  \lgr \text{has to be renormalized for $ e^{-2V} $ in the chiral representation} \rgr
+	\\ \\
+%%  Shift of the variable to the chiral variable (or vice versa)
+  \text{Shift:} &\quad x_L ~~\to~~ x  \qquad {\rm is} \qquad e^{-i \ov{\theta\slashed{\partial}}\theta}
+\end{align*}
+
+
+\pagebreak
+\renewcommand{\arraystretch}{2.5}
+
+\begin{center}
+        {\Large\bf Useful formulae}
+\end{center}
+
+\begin{eqnarray*}
+\begin{array}{ll}
+%%
+  \theta^\alpha \theta^\beta ~~=~~ 
+	\frac{1}{2}\theta^2 \epsilon^{\alpha\beta} 
+  & \theta^1 \theta^2 ~~=~~ - \frac{1}{2} \theta^2 \\
+%%
+   \theta_\alpha \theta_\beta ~~=~~ 
+	-\frac{1}{2}\theta^2 \epsilon_{\alpha\beta} 
+  & \theta_1 \theta_2 ~~=~~ 
+	-\frac{1}{2}\theta^2 \\
+%%
+   \overline{\theta^{\dot{\alpha}}\theta}{}^{\dot{\beta}} ~~=~~ 
+	-\frac{1}{2}\overline{\theta}^2 \epsilon^{\dot{\alpha}\dot{\beta}}
+  & \overline{\theta^{\dot{1}}\theta}{}^{\dot{2}} ~~=~~ 
+	\frac{1}{2}\overline{\theta}^2 \\
+%%
+   \overline{\theta_{\dot{\alpha}}\theta}{}_{\dot{\beta}} ~~=~~
+	\frac{1}{2}\overline{\theta}^2 \epsilon_{\dot{\alpha}\dot{\beta}}
+  & \overline{\theta_{\dot{1}}\theta}{}_{\dot{2}} ~~=~~
+	\frac{1}{2}\overline{\theta}^2 \\
+%%
+   \theta\lambda\, \theta\psi ~~=~~ - \frac{1}{2}\, \theta^2 \lambda\psi 
+  &
+   \ov{\theta\lambda}\, \ov{\theta\psi} ~~=~~ -\frac{1}{2}\, \ov{\theta}{}^2 \ov{\lambda\psi} \\
+%%
+   \sigma_\mu\,\ov{\sigma}{}_\nu\, \sigma_\rho ~~=~~ 
+	\eta_{\mu\nu}\, \sigma_\rho ~+~ \eta_{\nu\rho}\,\sigma_\mu ~-~ \eta_{\mu\rho}\,\sigma_\nu
+	~-~ \epsilon_{\mu\nu\rho\lambda}\,\sigma_\lambda 
+&
+   \multirow{2}{*}{
+$	\sigma_\mu^{\beta\dot\beta}\, \ov{\sigma}{}_{\dot\alpha\alpha}^\mu ~~=~~
+				2 \delta_\alpha^{\ \beta} \delta_{\dot\alpha}^{\ \dot\beta}  $
+	} \\
+%%
+   \ov{\sigma}{}_\mu\,\sigma_\nu\,\ov{\sigma}{}_\rho ~~=~~
+	\eta_{\mu\nu}\, \ov{\sigma}{}_\rho ~+~ \eta_{\nu\rho}\, \ov{\sigma}{}_\mu 
+								   ~-~ \eta_{\mu\rho}\, \ov{\sigma}{}_\nu
+	~+~ \epsilon_{\mu\nu\rho\lambda}\,\ov{\sigma}{}_\lambda \\
+%%
+   Tr \left ( \overline{\sigma}^\mu\sigma^\nu \right) ~~=~~
+	2 \eta^{\mu\nu}
+  & \overline{\theta\sigma}{}^\mu\theta 
+    \overline{\theta\sigma}{}^\nu\theta ~~=~~
+	\frac{1}{2} \theta^2\overline{\theta}^2 \eta^{\mu\nu} \\
+%%
+   \p_\alpha \theta_\beta ~~=~~ \epsilon_{\alpha\beta} 
+  &
+   \ov{\p^{\dot\alpha} \theta}{}^{\dot\beta} ~~=~~ \epsilon^{\dot\alpha\dot\beta} \\
+%%
+   \partial^\alpha \theta^2 ~~=~~ 2 \theta^\alpha
+  & \overline{\partial}_{\dot{\alpha}} \overline{\theta}{}^2 ~~=~~
+	2 \overline{\theta}_{\dot{\alpha}} \\
+%%
+   \partial^2 \theta^2 ~~=~~ -4
+  &
+   \ov{\p^2 \theta}{}^2 ~~=~~ -4 \\
+%%
+   \epsilon_{\alpha\gamma}\epsilon^{\gamma\beta} ~~=~~
+	\delta_{\alpha}^{\beta}
+  & \epsilon_{\dot{\alpha}\dot{\gamma}} 
+    \epsilon^{\dot{\gamma}\dot{\beta}} ~~=~~ 
+	\delta_{\dot{\alpha}}^{\dot{\beta}} \\
+%% 
+   \epsilon^{\alpha\gamma}\epsilon_{\gamma\beta} ~~=~~
+	\delta^\alpha_\beta 
+  & \epsilon^{\dot{\alpha}\dot{\gamma}}
+    \epsilon_{\dot{\gamma}\dot{\beta}} ~~=~~
+	\delta^{\dot{\alpha}}_{\dot{\beta}} \\
+%%
+  \sigma^{(\mu}\overline{\sigma}^{\nu)} ~~=~~ 
+	2 \eta^{\mu\nu} 
+  & \slashed{\p}\overline{\slashed{\p}} ~~=~~ \ov{\slashed{\p}}\slashed{\p} ~~=~~ \Box 
+	\\
+%%
+  D_\alpha D^\alpha ~~=~~ \p^2 ~~-~~ 2\, i \p_\alpha\slashed{\p}^{\alpha\dot{\beta}}\ov{\theta}_{\dot{\beta}} 
+	~~+~~ \Box \ov{\theta}^2
+	\\
+%%
+  \overline{D^{\dot{\alpha}}D}{}_{\dot{\alpha}} ~~=~~ 
+	\overline{\partial}^2  ~~+~~
+	2 i \ov{\slashed{\partial}}{}_{\dot{\alpha}\alpha}
+		\theta^\alpha \overline{\partial}^{\dot{\alpha}}
+        ~~+~~ \theta^2 \Box
+	\\
+%%
+   \left\{ D^{\alpha}\, \ov{D}{}^{\dot{\alpha}} \right\}  ~~=~~ 2i\,\slashed{\p}^{\alpha\dot{\alpha}}
+\end{array}
+\end{eqnarray*}
+
+ 
+\pagebreak
+\renewcommand{\arraystretch}{1.0}
+
+\begin{center}
+        {\Large\bf Chiral Superfields}
+\end{center} 
+
+\begin{align*}
+%%
+	\Phi(y) & ~~=~~ \phi(y) ~~+~~ \sqrt{2}\, \psi\,\theta ~~+~~ F\, \theta^2~,   &
+				y^\mu & ~~=~~ x^\mu ~~+~~ i\, \ov{\theta\sigma}{}^\mu\theta  \\
+%%
+	\ov{\Phi}(\ov{y}) & ~~=~~ \ov{\phi}(\ov y) ~~+~~ \sqrt{2}\, \ov{\psi\, \theta} ~~+~~ \ov{F\, \theta}{}^2~, &
+				\ov{y}{}^\mu & ~~=~~ x^\mu ~~-~~ i\, \ov{\theta\sigma}{}^\mu\theta
+\end{align*}
+
+\begin{align*}
+%%
+	\Phi(y) & ~~=~~ \phi(x) ~+~ \sqrt{2}\,\theta\psi ~+~ \theta^2 F 
+			~+~ i\,\ov{\theta\slashed{\p}}\,\theta\,\phi 
+			~-~ i\,\frac{\sqrt{2}}{2}\, \theta^2\, \ov{\theta\slashed{\p}}\,\psi 
+			~-~ \frac{1}{4}\,\theta^4\,\Box \phi
+	\\
+%%
+	\ov{\Phi}(\ov y) & ~~=~~ 
+			\ov\phi(x) ~+~ \sqrt{2}\,\ov{\theta\psi} ~+~ \ov\theta{}^2 \ov F 
+			~+~ i\,\theta\slashed{\p}\,\ov\theta\,\ov\phi
+			~-~ i\,\frac{\sqrt{2}}{2}\, \ov\theta{}^2\, \theta\slashed{\p}\,\ov{\psi}
+			~-~ \frac{1}{4}\,\theta^4\,\Box \ov\phi
+\end{align*}
+
+\begin{align*}
+%%
+	\int d^4\theta & ~~=~~ \frac{1}{16}\, D^2\, \ov D{}^2 \Big|
+	& 
+	\int d^4\theta & ~~=~~ \frac{1}{16}\, \ov D{}^2\, D^2 \Big|
+	\\
+%%
+	\int d^2\theta & ~~=~~ -\,\frac{1}{4}\, D^2 \Big|
+	&
+	\int d^2\ov\theta & ~~=~~ -\,\frac{1}{4}\, \ov D{}^2 \Big|
+	\\ \\
+%%
+	D^\alpha \Phi \Big| & ~~=~~ \sqrt{2} \psi^\alpha     
+	&
+	\ov{D_{\dot{\alpha}}\Phi} \Big| & ~~=~~ \sqrt{2} \ov{\psi}{}_{\dot{\alpha}} \\
+%%
+	D^2 \Phi \Big| & ~~=~~ -4\, F  
+	&
+	\ov{D^2 \Phi} \Big| & ~~=~~ -4\, \ov{F} \\
+%%
+	\ov{D}{}^{\dot{\alpha}} D^{\alpha} \Phi & ~~=~~ 2i\, \slashed{\p}^{\alpha\dot{\alpha}} \Phi
+	&
+	D^{\alpha} \ov{D}{}^{\dot{\alpha}} \ov{\Phi} & ~~=~~ 2i\, \slashed{\p}^{\alpha\dot{\alpha}} \ov{\Phi} \\
+%%
+	\ov{D}{}_{\dot{\alpha}} D^2 \Phi & ~~=~~ 4i\, \ov{\slashed{\p}}_{\dot{\alpha}\beta} D^\beta \Phi
+	&
+	D^\alpha \ov{D}{}^2 \ov{\Phi} & ~~=~~ 4i\, \slashed{\p}^{\alpha\dot{\beta}} \ov{D_{\dot{\beta}} \Phi}
+	\\
+%%
+	\ov{D}{}_{\dot{\alpha}} D^2 \Phi \Big| & ~~=~~ 4\sqrt{2}i\, \ov{\slashed{\p}}{}_{\dot{\alpha}\beta} \psi^\beta
+	&
+	D^\alpha \ov{D}{}^2 \ov{\Phi} \Big| & ~~=~~ 4\sqrt{2}i\, \slashed{\p}^{\alpha\dot{\beta}} \ov{\psi}{}_{\dot{\beta}}
+	\\
+%%
+	\ov{D}{}^2 D^2 \Phi & ~~=~~ -16\, \Box \Phi
+	&
+	D^2\ov{D}{}^2 \ov{\Phi} & ~~=~~ - 16\, \Box \ov{\Phi}
+\end{align*}
+
+% Logarithm of an (anti) chiral field
+\begin{align*}
+%%
+	\ln\, \Phi(y)    & ~~=~~    \ln\, \phi  ~~+~~  \sqrt{2}\, \theta\, \psi / \phi  ~~+~~
+				    \theta^2 \lgr F / \phi  ~+~  \frac{1}{2}\, \Big( \psi / \phi \Big)^2 \rgr 
+	\\
+%%
+%	\ln\, \ov \Phi (\ov y)    & ~~=~~    \ln\, \ov\phi  ~~+~~  \sqrt{2}\, \ov{\theta\, \psi / \phi}  ~~+~~
+%					     \ov\theta{}^2 \lgr \ov{F / \phi} ~+~ \frac{1}{2}\, \Big( \ov{\psi / \phi} \Big)^2 \rgr
+%	\\
+%%
+	\ln\, \ov \Phi (\ov y)    & ~~=~~    \ln\, \ov\phi  ~~+~~  \sqrt{2}\, \ov{\theta\, \psi} / {\ov \phi}  ~~+~~
+					     \ov\theta{}^2 \lgr \ov F / \ov \phi ~+~ \frac{1}{2}\, \Big( \ov \psi / \ov \phi \Big)^2 \rgr
+\end{align*}
+
+
+\pagebreak
+\begin{center}
+{\Large\bf \boldmath{$ \mc{N}=1 $} Supersymmetry Transformations}
+\end{center} 
+
+\begin{align*}
+%%
+   Q^\alpha & ~~=~~  \partial^\alpha +
+            i \slashed{\partial}^{\alpha\dot{\alpha}}
+	    \overline{\theta}_{\dot{\alpha}}   \\
+%%
+   \overline{Q}_{\dot{\alpha}} & ~~=~~ \overline{\partial}_{\dot{\alpha}} +
+            i \ov{\slashed{\partial}}{}_{\dot{\alpha}\alpha}\theta^\alpha 
+\end{align*}
+
+\begin{align*}
+%%
+	\delta\phi & ~~=~~ \sqrt{2}\, \epsilon\, \psi     &  
+		\delta \ov{\phi} & ~~=~~ \sqrt{2}\, \ov{\epsilon\, \psi}\\
+%%
+	\delta\psi_\alpha & ~~=~~ i\sqrt{2}\, 
+			\ov{\epsilon^{\dot{\alpha}} \slashed{\p}}{}_{\dot{\alpha}\alpha} \phi 
+			~~+~~ \sqrt{2}\, \epsilon_\alpha F 
+&
+		\delta \ov{\psi}{}^{\dot{\alpha}} & ~~=~~ 
+			i\sqrt{2}\, \epsilon_\alpha \slashed{\p}^{\alpha\dot{\alpha}} \ov{\phi} 
+			~~+~~ \sqrt{2}\, \ov{\epsilon^{\dot{\alpha}}\, F} \\
+%%
+	\delta F & ~~=~~ -i \sqrt{2}\, \ov{\epsilon\, \slashed{\p}} \psi  &
+		\delta F & ~~=~~ -i \sqrt{2}\, \epsilon\slashed{\p} \ov{\psi}
+\end{align*}
+
+
+\pagebreak
+\begin{center}
+\section*{Formulae for Two Dimensions}
+\end{center}
+
+% Left and Right Derivatives
+\begin{align*}
+%%
+	\p_R \!\!\! &  ~~~=~ ~\, \p_0 ~+~ i\, \p_3 
+	&
+	\p_L \!\!\! &  ~~~=~ ~\, \p_0 ~-~ i\, \p_3 
+	\\[1mm]
+%%
+	\slashed\p & ~~~=~ \lgr \begin{matrix}  \p_L  &       \\
+						      & \p_R 
+			   \end{matrix} \rgr^{\alpha\dot\alpha}
+	&
+	\ov{\slashed\p} & ~~~=~ \lgr \begin{matrix}  \p_R  &       \\
+                                                           & \p_L				
+				\end{matrix} \rgr_{\dot\alpha\alpha}
+\end{align*}
+
+% Reduction of indices from 4-d
+\begin{align*}
+%%
+	\xi_1 & ~~\equiv~~ \xi_R  
+	&
+	\ov\xi{}_1 & ~~\equiv~~ \ov\xi{}_R
+	&
+	\epsilon\,\xi & ~~=~~ -\, \epsilon_{[R}\, \xi_{L]}
+	&
+	\xi^1 & ~~=~~ -\, \xi_L
+	\\[2mm]
+%%
+	\xi_2 & ~~\equiv~~ \xi_L
+	&
+	\ov\xi{}_2 & ~~\equiv~~ \ov\xi{}_L
+	&
+	\ov{\epsilon\, \xi} & ~~=~~ \phantom{-\,\ } 
+				\ov{\epsilon_{[R}\, \xi}{}_{L]}
+	&
+	\xi^2 & ~~=~~ \phantom{-\,\ }
+		      \xi_R
+\end{align*}
+
+% Squares of spinors and of the right- and left-handed derivatives
+\begin{align*}
+%%
+	\theta^2    & ~~=~~    -\, 2\, \theta_R\, \theta_L 
+	&
+	D^2         & ~~=~~    -\, 2\, D_R\, D_L
+	\\[2mm]
+%%
+	\ov\theta{}^2    & ~~=~~    \phantom{+\,\ } 2\, \ov{\theta_R\, \theta}{}_L
+	&
+	\ov D{}^2              & ~~=~~    \phantom{+\,\ } 2\, \ov{D_R\, D}{}_L
+\end{align*}
+
+% The right- and left-handed derivatives
+\begin{align*}
+%%
+	D_R    & ~~\equiv~~    D^1
+	&
+	\ov D{}_R    & ~~\equiv~ \phantom{+\,\ } \ov D{}_{\dot 2} 
+	~~
+	~~=~~ -\, \ov{D}{}^{\dot 1}
+	\\[2mm]
+%%
+	D_L    & ~~\equiv~~    D^2
+	&
+	\ov D{}_L    & ~~\equiv~    -\, \ov D{}_{\dot 1}
+	~~
+	~~=~~ -\, \ov{D}{}^{\dot 2}
+\end{align*}
+
+% Anti-commutators of the D-derivatives
+\begin{align*}
+%%
+	\left\{ \ov D{}_R\, D_L \right\}    & ~~=~~    0
+	&
+	\left\{ \ov D{}_R\, D_R \right\}    & ~~=~~    -\, 2 i\, \p_L
+	\\
+%%
+	\left\{ \ov D{}_L\, D_R \right\}    & ~~=~~    0
+	&
+	\left\{ \ov D{}_L\, D_L \right\}    & ~~=~~    -\, 2 i\, \p_R
+\end{align*}
+
+% define a slanted fraction-style derivative
+\newcommand{\deriv}[2]
+{
+  \raisebox{1.5ex}{\scalebox{0.86}{\ensuremath{#1}}}\hspace{-0.27em}\raisebox{1ex}{\scalebox{1.2}{/}} 
+	\hspace{-0.36em}\scalebox{0.86}{\ensuremath{#2}}
+}
+
+% \vartheta's are the partial derivatives
+\begin{align*}
+%%
+	\vartheta_R    & ~~=~~    \deriv \p {\p \theta_R}
+	&
+	\vartheta_L    & ~~=~~    \deriv \p {\p \theta_L}
+	\\
+%%
+	\ov\vartheta{}_R    & ~~=~~    \deriv \p {\p \ov\theta{}_R}
+	&
+	\ov\vartheta{}_L    & ~~=~~    \deriv \p {\p \ov\theta{}_L}
+\end{align*}
+
+% D-derivatives explicitly
+\begin{align*}
+%%
+	D_R    & ~~=~~    \vartheta_R  ~~-~~  i\, \ov\theta{}_R\,\p_L
+	&
+	\ov D{}_R    & ~~=~~    \ov\vartheta{}_R  ~~-~~  i\, \theta_R\,\p_L
+	\\[2mm]
+%%
+	D_L    & ~~=~~    \vartheta_L  ~~-~~  i\, \ov\theta{}_L\,\p_R
+	&
+	\ov D{}_L    & ~~=~~    \ov\vartheta{}_L  ~~-~~  i\, \theta_L\,\p_R
+\end{align*}
+
+% Fierz Identities
+\begin{align*}
+%%
+	\sigma_\mu^{\beta\dot\beta}\, \ov\sigma_{\dot\alpha\alpha}^\mu & ~~=~~ 
+					2\, \delta_\alpha^{\ \beta} \delta_{\dot\alpha}^{\ \dot\beta} \cdot
+						\delta_{\alpha\dot\alpha}\,,
+	&
+	\mu ~=~ 0,\, 3 
+	\\[2mm]
+%%
+	\sigma_k^{\beta\dot\beta}\, \ov\sigma_{\dot\alpha\alpha}^k & ~~=~~
+					2\, \delta_\alpha^{\ \beta} \delta_{\dot\alpha}^{\ \dot\beta} \cdot
+						\epsilon_{\alpha\dot\alpha}\,,
+	&
+	k ~=~ 1,\, 2 
+	\\[1mm]
+%%
+	\theta_\alpha \ov\theta_{\dot\alpha} & ~~=~~ 
+		\frac{1}{2}\, \theta\sigma_\mu\ov{\theta} \cdot \ov{\sigma}_{\dot\alpha\alpha}^\mu
+\end{align*}
+
+
+\pagebreak
+\subsection*{\centering\it Chiral superfields}
+% Chiral Superfields in 2-d
+\begin{align*}
+%%
+	\Phi(y)    & ~~=~~    \phi(y)  ~~-~~  \sqrt{2}\, \theta_R \psi_L
+                                       ~~+~~  \sqrt{2}\, \theta_L \psi_R  ~~-~~  2\, \theta_R\theta_L\, F
+	\\[2mm]
+%%
+	\Phi(\ov y)    & ~~=~~    \ov\phi(\ov y)  ~~+~~  \sqrt{2}\, \ov{\theta_R \psi}{}_L
+                                                  ~~-~~  \sqrt{2}\, \ov{\theta_L \psi}{}_R
+                                                  ~~+~~  2\, \ov{\theta_R \theta}{}_L\, \ov{F}
+\end{align*}
+
+% Chiral variables "y"
+\begin{align*}
+%%
+	y^0    & ~~=~~  x^0  ~+~ i \left( \ov\theta{}_R\theta_R  ~+~  \ov\theta{}_L\theta_L \right)
+	&
+	y^3    & ~~=~~  x^3  ~+~ \left( \ov\theta{}_R\theta_R  ~-~  \ov\theta{}_L\theta_L \right)
+	\\[2mm]
+%%
+	\ov y{}^0    & ~~=~~   x^0  ~-~ i \left( \ov\theta{}_R\theta_R  ~+~  \ov\theta{}_L\theta_L \right)
+	&
+	\ov y{}^3    & ~~=~~   x^3  ~-~ \left( \ov\theta{}_R\theta_R  ~-~  \ov\theta{}_L\theta_L \right)
+\end{align*}
+
+\vspace{2mm}
+\subsection*{\centering \it Twisted Chiral superfields}
+\begin{align*}
+%%
+	\Sigma(\wt y)    & ~~=~~    \sigma(\wt y)  ~~-~~  \sqrt{2}\, \theta_R \ov\lambda{}_L
+						   ~~+~~  \sqrt{2}\, \ov\theta{}_L \lambda_R
+						   ~~+~~  \sqrt{2}\, \theta_R \ov\theta{}_L \lgr D ~-~ i\, F_{03} \rgr
+	\\[2mm]
+%%
+	\ov\Sigma(\ov{\wt y})    & ~~=~~    \ov\sigma(\ov{\wt y})  ~~-~~ \sqrt{2}\, \theta_L \ov\lambda{}_R
+								   ~~+~~ \sqrt{2}\, \ov\theta{}_R \lambda_L
+								   ~~+~~ \sqrt{2}\, \theta_L \ov\theta{}_R \lgr D ~+~ i\, F_{03} \rgr
+\end{align*}
+
+% Twisted Chiral variables "\tilde y"
+\begin{align*}
+%%
+	\wt y{}^\mu    & ~~=~~    x^\mu  ~+~  i\,\ov{\theta \wt\sigma}{}_\mu \theta
+	&
+	\wt \sigma{}_0    & ~~=~~\,    i\, \sigma_3
+	&
+	\wt \sigma{}_3    & ~~=~\,    -\, i\, \sigma_0
+	\\[2mm]
+%%
+	\ov{\wt y}{}^\mu    & ~~=~~    x^\mu  ~+~  i\,\theta \wt\sigma{}_\mu \ov\theta
+	&
+	\ov{\wt \sigma}{}_0    & ~~=~~\,    i\, \ov \sigma{}_3
+	&
+	\ov{\wt \sigma}{}_3    & ~~=~\,    -\, i\, \ov \sigma{}_0
+\end{align*}
+
+% Twisted Chiral variables "\tilde y" in components
+\begin{align*}
+%%
+	\wt y{}^0    & ~~=~~  x^0  ~+~ i \left( \ov\theta{}_R\theta_R  ~-~  \ov\theta{}_L\theta_L \right)
+	&
+	\wt y{}^3    & ~~=~~  x^3  ~+~ \left( \ov\theta{}_R\theta_R  ~+~  \ov\theta{}_L\theta_L \right)
+	\\[2mm]
+%%
+	\ov{\wt y}{}^0    & ~~=~~   x^0  ~-~ i \left( \ov\theta{}_R\theta_R  ~-~  \ov\theta{}_L\theta_L \right)
+	&
+	\ov{\wt y}{}^3    & ~~=~~   x^3  ~-~ \left( \ov\theta{}_R\theta_R  ~+~  \ov\theta{}_L\theta_L \right)
+\end{align*}
+
+% Slashed derivatives contracted with twisted sigma matrices
+\begin{align*}
+%%
+	\wt{\slashed\p} & ~~~=~ \lgr \begin{matrix}  \, \p_L  &       \\
+						              & - \p_R 
+				\end{matrix} \rgr^{\alpha\dot\alpha}
+	&
+	\ov{\slashed{\wt\p}} & ~~~=~ \lgr \begin{matrix}  - \p_R  &       \\
+                                                                  & \p_L				
+				     \end{matrix} \, \rgr_{\dot\alpha\alpha}
+\end{align*}
+
+% D derivatives expressed in ``\tilde y'' variables
+\begin{align*}
+%%
+	D_R    & ~=~    \deriv \p {\p \theta_R}  ~-~  2 i \ov\theta{}_R\p_L \Big|_{\wt y}
+		 ~=~    \deriv \p {\p \theta_R} \Big|_{\ov{\wt y}}
+	&
+	\ov D{}_R    & ~=~    \deriv \p {\p \ov\theta{}_R} \Big|_{\wt y}
+		       ~=~    \deriv \p {\p \ov\theta{}_R}  ~-~  2 i \theta_R \p_L \Big|_{\ov {\wt y}}
+	\\[3mm]
+%%
+	D_L    & ~=~    \deriv \p {\p \theta_L} \Big|_{\wt y}
+		 ~=~    \deriv \p {\p \theta_L} ~-~ 2 i \ov\theta{}_L \p_R \Big|_{\ov {\wt y}}
+	&
+	\ov D{}_L    & ~=~    \deriv \p {\p \ov\theta{}_L} ~-~ 2 i \theta_L \p_R \Big|_{\wt y}
+		       ~=~    \deriv \p {\p \ov\theta{}_L} \Big|_{\ov {\wt y}}
+\end{align*}
+
+% Integration and applying D derivatives
+\begin{align*}
+%%
+	\int d^4\theta & ~~=~~ \frac{1}{4}\, \ov D{}_R\, D_R\, \ov D{}_L\, D_L \Big|
+	&
+	\int d^4\theta & ~~=~~ -\, \frac{1}{4}\, \ov D{}_R\, D_L\, \ov D{}_L D_R \Big|
+	\\
+%%
+	\int d^2\wt\theta & ~~=~~ \frac{1}{2}\, \ov D{}_L\, D_R \Big|
+	&
+	\int d^2\ov{\wt\theta} & ~~=~~ \frac{1}{2}\, \ov D{}_R\, D_L \Big|
+	\\ \\
+%%
+	D_R\, \sqrt{2}\, \Sigma \Big| & ~~=~~ -\, 2\, \ov\lambda{}_L
+	&
+	\ov D{}_R\, \sqrt{2}\, \ov\Sigma \Big| & ~~=~~ +\, 2\, \lambda_L
+	\\
+%%
+	\ov D{}_L\, \sqrt{2}\, \Sigma \Big| & ~~=~~ +\, 2\, \lambda_R
+	&
+	D_L\, \sqrt{2} \ov\Sigma \Big| & ~~=~~ -\, 2\, \ov\lambda{}_R
+	\\
+%%
+	\frac{1}{2}\, \ov D{}_L D_R\, \sqrt{2}\, \Sigma \Big| & ~~=~~ D \,-\, i F_{03}
+	&
+	\frac{1}{2}\, \ov D{}_R D_L\, \sqrt{2}\, \ov\Sigma \Big| & ~~=~~ D \,+\, i F_{03}
+\end{align*}
+
+% Logarithm of a twisted chiral field
+\begin{align*}
+%%
+	\ln\, \Sigma(\wt y) & ~~=~~ \ln\,\sigma 
+				~-~ \sqrt{2}\, \theta_R \ov\lambda{}_L / \sigma
+				~+~ \sqrt{2}\, \ov\theta{}_L \lambda_R / \sigma
+				~+~ \theta_R \ov\theta{}_L \!\!
+				    \lgr
+					\frac{ \sqrt{2}\, \left( D \,-\, i F_{03} \right) }{ \sigma }
+					\,-\,
+					2 \frac{\ov\lambda{}_L}{\sigma} \frac{\lambda_R}{\sigma}
+				    \rgr
+	\\
+%%
+	\ln\, \ov\Sigma(\ov{\wt y}) & ~~=~~ \ln\,\ov\sigma 
+				~-~ \sqrt{2}\, \theta_L\, \ov\lambda{}_R / {\ov \sigma}
+				~+~ \sqrt{2}\, \ov\theta{}_R\, \lambda_L / {\ov \sigma}
+				~+~ \theta_L \ov\theta{}_R \!\!
+				    \lgr
+					\frac{ \sqrt{2}\, \left( D \,+\, i F_{03} \right) }{ \ov\sigma }
+					\,-\,
+					2 \frac{\ov \lambda{}_R}{\ov\sigma} \frac{\lambda_L}{\ov\sigma}
+				    \rgr
+\end{align*}
+
+
+\pagebreak
+\subsection*{\centering \it Twisted Chiral Superfield \boldmath{$S$}}
+
+% Definition of S and \ov{S}
+\begin{align*}
+%
+	S &    ~~=~~    \frac{i}{2}\, \ov D{}_R D_L\, \ln \sqrt{2}\, \ov\Sigma
+	&
+	\ov S &    ~~=~~    \frac{i}{2}\, \ov D{}_L D_R\, \ln \sqrt{2}\, \Sigma
+\end{align*}
+
+% Components of S and \ov{S}
+\begin{align*}
+	S \Big| &    ~~=~~    \frac{ \sqrt{2}\ov\sigma\, ( iD \,-\, F_{03} ) ~-~ 2\,i\, \ov\lambda{}_R \lambda_L }
+						{ \big( \sqrt{2}\, \ov\sigma \big)^2 }
+	\quad
+	&
+	\ov S \Big| &    ~~=~~    \frac{ \sqrt{2}\sigma\, ( iD \,+\, F_{03} ) ~-~ 2\,i\, \ov\lambda{}_L \lambda_R }
+						{ \big( \sqrt{2}\, \sigma \big)^2 }
+\end{align*}
+
+\begin{align*}
+%
+	D_R\, S &    ~~=~~    \p_L\, \frac{ D_L\, \sqrt{2}\,\ov\Sigma}{\sqrt{2}\,\ov\Sigma}
+	&
+	D_R\, S \Big| &    ~~=~~    -\, 2\, \p_L\, \frac{\ov\lambda{}_R}{\sqrt{2}\ov\sigma}
+	\\[2mm]
+%
+	\ov {D_R\, S} &    ~~=~~    -\, \p_L\, \frac{\ov D{}_L\, \sqrt{2}\,\Sigma}{\sqrt{2}\, \Sigma}
+	&
+	\ov {D_R\, S} \Big| &    ~~=~~    -\, 2\, \p_L\, \frac{\lambda_R}{\sqrt{2}\sigma}
+	\\[2mm]
+%
+	\ov D{}_L S &    ~~=~~    -\, \p_R\, \frac{ \ov{D_R\, \sqrt{2}\, \Sigma} }{ \sqrt{2}\, \ov\Sigma }
+	&
+	\ov D{}_L S \Big| &    ~~=~~    -\, 2\, \p_R\, \frac{\lambda_L}{\sqrt{2}\ov\sigma}
+	\\[2mm]
+%
+	D_L\, \ov S &    ~~=~~    \p_R\, \frac{D_R\, \sqrt{2}\, \Sigma}{\sqrt{2}\,\Sigma}
+	&
+	D_L\, \ov S \Big| &    ~~=~~    -\, 2\, \p_R\, \frac{\ov\lambda{}_L}{\sqrt{2}\sigma}
+	\\[6mm]
+%
+	\frac{1}{2}\, \ov D{}_L D_R\, S &    ~~=~~    -\, i\, \Box\, \ln \sqrt{2}\, \ov\Sigma
+	&
+	\frac{1}{2}\, \ov D{}_L D_R\, S \Big| &    ~~=~~    -\, i\, \Box\, \ln \sqrt{2}\ov\sigma
+	\\[2mm]
+%
+	\frac{1}{2}\, \ov D{}_R D_L \ov S &    ~~=~~    -\, i\, \Box\, \ln \sqrt{2}\Sigma
+	&
+	\frac{1}{2}\, \ov D{}_R D_L \ov S \Big| &    ~~=~~    -\, i\, \Box\, \ln \sqrt{2}\sigma
+\end{align*}
+
+
+\pagebreak
+\subsection*{\centering \it Vector superfield}
+% Vector superfield
+\begin{align*}
+%%
+	V(x) & ~~=~~ -~~ A_L\, \ov\theta{}_R\theta_R  ~-~ A_R\, \ov\theta{}_L\theta_L  
+                   ~~-~~ i\, \sqrt{2}\,\sigma\, \ov\theta{}_R\theta_L  
+                   ~~-~~ i\, \sqrt{2}\, \ov{\sigma\, \theta}{}_L\theta_R
+                   ~~-
+	\\[2mm]
+	& \phantom{~~=~~}
+	             -~~ 2\,i\, \theta_R\theta_L\,\ov{\theta_{[R} \lambda}{}_{L]}  
+                   ~~-~~  2\,i\, \ov{\theta_R\theta}{}_L\, \theta_{[R}\lambda_{L]}
+	           ~~-~~ 2\,i\, \ov\theta{}_R\theta_R \ov\theta{}_L\theta_L\, D(x)
+	\\ \\[2mm]
+%%
+% Vector superfield in ``\tilde y'' variables
+	V(x) & ~~=~~ -~~ A_L\, \ov\theta{}_R\theta_R  ~-~ A_R\, \ov\theta{}_L\theta_L  
+                   ~~-~~ i\, \sqrt{2}\,\sigma\, \ov\theta{}_R\theta_L  
+                   ~~-~~ i\, \sqrt{2}\, \ov{\sigma\, \theta}{}_L\theta_R
+                   ~~-
+	\\[2mm]
+	& \phantom{~~=~~}
+	             -~~ 2\,i\, \theta_R\theta_L\,\ov{\theta_{[R} \lambda}{}_{L]}  
+                   ~~-~~  2\,i\, \ov{\theta_R\theta}{}_L\, \theta_{[R}\lambda_{L]}
+	           ~~-~~ 2\,i\, \ov\theta{}_R\theta_R \ov\theta{}_L\theta_L\, \!\! \lgr D \,\mp\, i\, F_{03} \rgr_{\wt y,\, {\ov{\wt y}}}
+\end{align*}
+
+% Left and right gauge field and the definition of \sigma
+\begin{equation*}
+\begin{array}{lll}
+%%
+	A_R       ~~=~~    A_0  ~+~  i\,A_3
+	&
+	\qquad\quad
+	\raisebox{-1.5ex}{
+		\multirow{2}{*}{
+		$ \sigma    ~~=~~    -\, \frac{\raisebox{0.5ex}{$\displaystyle A_1 \,+\, i A_2$}}
+							{\raisebox{-1.4ex}{$ \displaystyle \sqrt 2$}} $
+		}
+	}
+	&
+	\qquad
+	\raisebox{-0.8ex}{
+		\multirow{2}{*}{
+	 	   $ \p_{[R} A_{L]}    ~~=~~    -\, 2i F_{03} $
+		}
+	}
+	\\[4mm]
+%%
+	A_L       ~~=~~    A_0  ~-~  i\,A_3
+\end{array}
+\end{equation*}
+
+% Twisted Chiral superfield from V
+\begin{align*}
+%%
+	\Sigma    & ~~=~~    \frac{i}{\sqrt 2}\, D_L\, \ov D{}_R\, V
+	&
+	\ov \Sigma    & ~~=~~    \frac{i}{\sqrt 2}\, D_R\, \ov D{}_L\, V
+\end{align*}
+
+\end{document}
