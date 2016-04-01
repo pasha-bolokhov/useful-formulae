@@ -537,12 +537,12 @@ $	\sigma_\mu^{\beta\dot\beta}\, \ov{\sigma}{}_{\dot\alpha\alpha}^\mu ~~=~~
 %%
 	\Sigma(\wt y)    & ~~=~~    \sigma(\wt y)  ~~-~~  \sqrt{2}\, \theta_R \ov\lambda{}_L
 						   ~~+~~  \sqrt{2}\, \ov\theta{}_L \lambda_R
-						   ~~+~~  \sqrt{2}\, \theta_R \ov\theta{}_L \lgr D ~-~ i\, F_{03} \rgr
+						   ~~-~~  i\, \sqrt{2}\, \theta_R \ov\theta{}_L\! \lgr iD ~+~ F_{03} \rgr
 	\\[2mm]
 %%
 	\ov\Sigma(\ov{\wt y})    & ~~=~~    \ov\sigma(\ov{\wt y})  ~~-~~ \sqrt{2}\, \theta_L \ov\lambda{}_R
 								   ~~+~~ \sqrt{2}\, \ov\theta{}_R \lambda_L
-								   ~~+~~ \sqrt{2}\, \theta_L \ov\theta{}_R \lgr D ~+~ i\, F_{03} \rgr
+								   ~~-~~ i\, \sqrt{2}\, \theta_L \ov\theta{}_R\! \lgr iD ~-~ F_{03} \rgr
 \end{align*}
 
 % Twisted Chiral variables "\tilde y"
@@ -627,9 +627,9 @@ $	\sigma_\mu^{\beta\dot\beta}\, \ov{\sigma}{}_{\dot\alpha\alpha}^\mu ~~=~~
 	D_L\, \sqrt{2} \ov\Sigma \Big| & ~~=~~ -\, 2\, \ov\lambda{}_R
 	\\
 %%
-	\frac{1}{2}\, \ov D{}_L D_R\, \sqrt{2}\, \Sigma \Big| & ~~=~~ D \,-\, i F_{03}
+	\frac{i}{2}\, \ov D{}_L D_R\, \sqrt{2}\, \Sigma \Big| & ~~=~~ iD \,+\, F_{03}
 	&
-	\frac{1}{2}\, \ov D{}_R D_L\, \sqrt{2}\, \ov\Sigma \Big| & ~~=~~ D \,+\, i F_{03}
+	\frac{i}{2}\, \ov D{}_R D_L\, \sqrt{2}\, \ov\Sigma \Big| & ~~=~~ iD \,-\, F_{03}
 \end{align*}
 
 % Logarithm of a twisted chiral field
@@ -638,22 +638,22 @@ $	\sigma_\mu^{\beta\dot\beta}\, \ov{\sigma}{}_{\dot\alpha\alpha}^\mu ~~=~~
 	\ln\, \Sigma(\wt y) & ~~=~~ \ln\,\sigma 
 				~-~ \sqrt{2}\, \theta_R \ov\lambda{}_L / \sigma
 				~+~ \sqrt{2}\, \ov\theta{}_L \lambda_R / \sigma
-				~+~ \theta_R \ov\theta{}_L \!\!
+				~-~ i\, \theta_R \ov\theta{}_L \!\!
 				    \lgr
-					\frac{ \sqrt{2}\, \left( D \,-\, i F_{03} \right) }{ \sigma }
+					\frac{ \sqrt{2}\, \left( iD \,+\, F_{03} \right) }{ \sigma }
 					\,-\,
-					2 \frac{\ov\lambda{}_L}{\sigma} \frac{\lambda_R}{\sigma}
+					2\,i\, \frac{\ov\lambda{}_L}{\sigma} \frac{\lambda_R}{\sigma}
 				    \rgr
 	\\
 %%
 	\ln\, \ov\Sigma(\ov{\wt y}) & ~~=~~ \ln\,\ov\sigma 
 				~-~ \sqrt{2}\, \theta_L\, \ov\lambda{}_R / {\ov \sigma}
 				~+~ \sqrt{2}\, \ov\theta{}_R\, \lambda_L / {\ov \sigma}
-				~+~ \theta_L \ov\theta{}_R \!\!
+				~-~ i\, \theta_L \ov\theta{}_R \!\!
 				    \lgr
-					\frac{ \sqrt{2}\, \left( D \,+\, i F_{03} \right) }{ \ov\sigma }
+					\frac{ \sqrt{2}\, \left( iD \,-\, F_{03} \right) }{ \ov\sigma }
 					\,-\,
-					2 \frac{\ov \lambda{}_R}{\ov\sigma} \frac{\lambda_L}{\ov\sigma}
+					2\,i\, \frac{\ov \lambda{}_R}{\ov\sigma} \frac{\lambda_L}{\ov\sigma}
 				    \rgr
 \end{align*}
 
@@ -701,14 +701,14 @@ $	\sigma_\mu^{\beta\dot\beta}\, \ov{\sigma}{}_{\dot\alpha\alpha}^\mu ~~=~~
 	D_L\, \ov S \Big| &    ~~=~~    -\, 2\, \p_R\, \frac{\ov\lambda{}_L}{\sqrt{2}\sigma}
 	\\[6mm]
 %
-	\frac{1}{2}\, \ov D{}_L D_R\, S &    ~~=~~    -\, i\, \Box\, \ln \sqrt{2}\, \ov\Sigma
+	\frac{i}{2}\, \ov D{}_L D_R\, S &    ~~=~~    \Box\, \ln \sqrt{2}\, \ov\Sigma
 	&
-	\frac{1}{2}\, \ov D{}_L D_R\, S \Big| &    ~~=~~    -\, i\, \Box\, \ln \sqrt{2}\ov\sigma
+	\frac{i}{2}\, \ov D{}_L D_R\, S \Big| &    ~~=~~    \Box\, \ln \sqrt{2}\ov\sigma
 	\\[2mm]
 %
-	\frac{1}{2}\, \ov D{}_R D_L \ov S &    ~~=~~    -\, i\, \Box\, \ln \sqrt{2}\Sigma
+	\frac{i}{2}\, \ov D{}_R D_L \ov S &    ~~=~~    \Box\, \ln \sqrt{2}\Sigma
 	&
-	\frac{1}{2}\, \ov D{}_R D_L \ov S \Big| &    ~~=~~    -\, i\, \Box\, \ln \sqrt{2}\sigma
+	\frac{i}{2}\, \ov D{}_R D_L \ov S \Big| &    ~~=~~    \Box\, \ln \sqrt{2}\sigma
 \end{align*}
 
 
@@ -737,7 +737,7 @@ $	\sigma_\mu^{\beta\dot\beta}\, \ov{\sigma}{}_{\dot\alpha\alpha}^\mu ~~=~~
 	& \phantom{~~=~~}
 	             -~~ 2\,i\, \theta_R\theta_L\,\ov{\theta_{[R} \lambda}{}_{L]}  
                    ~~-~~  2\,i\, \ov{\theta_R\theta}{}_L\, \theta_{[R}\lambda_{L]}
-	           ~~-~~ 2\,i\, \ov\theta{}_R\theta_R \ov\theta{}_L\theta_L\, \!\! \lgr D \,\mp\, i\, F_{03} \rgr_{\wt y,\, {\ov{\wt y}}}
+	           ~~-~~ 2\, \ov\theta{}_R\theta_R \ov\theta{}_L\theta_L\, \!\! \lgr iD \,\pm\, F_{03} \rgr_{\wt y,\, {\ov{\wt y}}}
 \end{align*}
 
 % Left and right gauge field and the definition of \sigma
